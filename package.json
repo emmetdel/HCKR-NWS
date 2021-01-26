@@ -1,5 +1,9 @@
 {
   "name": "hacker-news-clone",
+  "author": {
+    "name": "Emmet Delaney",
+    "email": "emmetdel@gmail.com"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
