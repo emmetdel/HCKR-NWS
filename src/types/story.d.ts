@@ -7,5 +7,6 @@ declare module Story{
     time: number;
     type: string;
     url: string;
+    title: string;
   }
 }

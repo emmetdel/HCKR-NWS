@@ -1,0 +1,73 @@
+@import "../../styles/_colors.scss";
+
+// TODO - handle smaller screen sizes
+
+.article-item {
+  display: grid;
+  padding-top: 10px;
+  grid-template-rows: repeat(2, 1fr);
+  border-bottom: 1px solid $bg-secondary;
+  vertical-align: middle;
+  padding-left: 20px;
+
+  // TODO - move transition to component and fill based on score
+  background: linear-gradient(to right, $bg-secondary 50%, #fff 50%);
+  background-size: 200%;
+  background-position: bottom right;
+  transition: all 0.4s ease-out;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-position: bottom left;
+    cursor: pointer;
+
+    .article-item__top-row__title {
+      color: $font-alternative-2;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__top-row {
+    font-size: 20px;
+    color: $font-main;
+    margin-bottom: 10px;
+
+    &__list-number {
+      margin-right: 15px;
+      color: light-grey;
+      font-size: 16px;
+      padding-top: 2px;
+      color: $font-secondary;
+      // font-style: italic;
+
+      &::after {
+        content: ".";
+      }
+    }
+
+    &__title {
+      font-weight: 700;
+    }
+  }
+
+  &__bottom-row {
+    font-size: 14px;
+    color: $font-alternative;
+    font-style: italic;
+
+    &__by {
+      color: $font-alternative-2;
+    }
+
+    p {
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,18 +1,41 @@
-import React from 'react';
+import React from "react";
 
-import './article-item.css'
+import "./article-item.scss";
 
 interface ArticleItemProps {
-  story: Story.Data
+  listNumber: number;
+  story: Story.Data;
 }
 
-const ArticleItem: React.FC<ArticleItemProps> = ({story}) => (
-  <li className="article-item">
-    <p>{story.id}</p>
-    <p>{story.by}</p>
-    <p>{story.type}</p>
-    <p>{story.score}</p>
+const ArticleItem: React.FC<ArticleItemProps> = ({ story, listNumber }) => (
+  <li
+    data-testid="article-item"
+    onClick={() => window.open(story.url, "_blank")}
+    className="article-item"
+  >
+    <div className="article-item__top-row">
+      <span
+        data-testid="article-list-number"
+        className="article-item__top-row__list-number"
+      >
+        {listNumber}
+      </span>
+      <p data-testid="article-title" className="article-item__top-row__title">
+        {story.title}
+      </p>
+    </div>
+    <div className="article-item__bottom-row">
+      <p data-testid="article-by" className="article-item__bottom-row__by">
+        by:&nbsp;{story.by}
+      </p>
+      <p
+        data-testid="article-score"
+        className="article-item__bottom-row__score"
+      >
+        {story.score}&nbsp;points.
+      </p>
+    </div>
   </li>
-)
+);
 
 export default ArticleItem;

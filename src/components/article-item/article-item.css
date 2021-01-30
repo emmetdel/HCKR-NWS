@@ -1,8 +1,0 @@
-.article-item {
-  display: grid;
-  padding-bottom: 15px;
-  grid-template-columns: repeat(4, 1fr);
-  border-bottom: 1px solid black;
-  vertical-align: middle;
-  padding-left: 20px;
-}
