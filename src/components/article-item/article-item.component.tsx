@@ -3,16 +3,11 @@ import React from "react";
 import "./article-item.scss";
 
 interface ArticleItemProps {
-  listNumber: number;
-  story: Story.Data;
+  story: Story;
   openCallback?: () => void;
 }
 
-const ArticleItem: React.FC<ArticleItemProps> = ({
-  story,
-  listNumber,
-  openCallback,
-}) => (
+const ArticleItem: React.FC<ArticleItemProps> = ({ story, openCallback }) => (
   <li
     data-testid="article-item"
     onClick={() =>
@@ -26,7 +21,7 @@ const ArticleItem: React.FC<ArticleItemProps> = ({
         data-testid="article-list-number"
         className="article-item__top-row__list-number"
       >
-        {listNumber}
+        {story.displayNumber}
       </span>
       <p data-testid="article-title" className="article-item__top-row__title">
         {story.title}

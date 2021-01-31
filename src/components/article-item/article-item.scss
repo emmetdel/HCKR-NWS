@@ -4,7 +4,7 @@
 
 .article-item {
   display: grid;
-  padding-top: 10px;
+  padding-top: 5px;
   grid-template-rows: repeat(2, 1fr);
   border-bottom: 1px solid $bg-secondary;
   vertical-align: middle;
@@ -37,7 +37,7 @@
   &__top-row {
     font-size: 20px;
     color: $font-main;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
     &__list-number {
       margin-right: 15px;

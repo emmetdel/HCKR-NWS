@@ -6,7 +6,7 @@ import testData from "../../data/dummy-data.json";
 
 const fetchData = async () => {
   // fetch from dummy data
-  const data = testData as Story.Data[];
+  const data = testData as Story[];
 
   const randomIndex = Math.floor(Math.random() * (data.length - 0 + 1)) + 0;
 
@@ -17,37 +17,27 @@ const fetchData = async () => {
 };
 
 test("check article item renders correctly", async () => {
-  const testListNumber = 1;
   const randomStory = await fetchData();
 
   // render article item
-  render(<ArticleItem listNumber={testListNumber} story={randomStory} />);
+  render(<ArticleItem story={randomStory} />);
 
   // expect to find title, score, by and list-number
   const title = screen.getByTestId("article-title");
   const score = screen.getByTestId("article-score");
   const by = screen.getByTestId("article-by");
-  const listNumber = screen.getByTestId("article-list-number");
 
   expect(title).toHaveTextContent(randomStory.title);
   expect(score).toHaveTextContent(randomStory.score.toString());
   expect(by).toHaveTextContent(`by: ${randomStory.by}`);
-  expect(listNumber).toHaveTextContent(testListNumber.toString());
 });
 
 test("ensure that clicking on article launches new tab", async () => {
-  const testListNumber = 1;
   const randomStory = await fetchData();
   const testCallback = jest.fn();
 
   // render article item
-  render(
-    <ArticleItem
-      listNumber={testListNumber}
-      story={randomStory}
-      openCallback={testCallback}
-    />
-  );
+  render(<ArticleItem story={randomStory} openCallback={testCallback} />);
 
   // get article
   const article = screen.getByTestId("article-item");
