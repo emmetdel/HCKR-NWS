@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ArticleItem from "./components/article-item/article-item.component";
+import Header from "./components/header/header.component";
 import List from "./components/list/list.component";
 import Paginator from "./components/paginator/paginator.component";
 
@@ -19,8 +20,24 @@ function Main() {
     );
   }, [pageNumber, pageSize, storyType]);
 
+  const _setStory = (type: "top" | "new") => {
+    setStoryType(type);
+    setPageNumber(0);
+  };
+
+  const _setPageSize = (size: number) => {
+    setPageSize(size);
+    setPageNumber(0);
+  };
+
   return (
     <div id="body-main" data-testid="body-main">
+      <Header
+        setStoryType={_setStory}
+        setPageSize={_setPageSize}
+        selectedStoryType={storyType}
+        selectedPageSize={pageSize}
+      />
       <List>
         {posts.map((story) => (
           <ArticleItem key={story.id} story={story} />

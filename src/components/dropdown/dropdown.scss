@@ -1,0 +1,15 @@
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  &__select {
+    &__option {
+      font-size: 28px;
+    }
+  }
+}
