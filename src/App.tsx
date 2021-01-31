@@ -9,25 +9,34 @@ import { fetchPosts, totalNumberPages } from "./data/api";
 
 function Main() {
   const [posts, setPosts] = useState<Story[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [pageSize, setPageSize] = useState<number>(30);
   const [storyType, setStoryType] = useState<"top" | "new">("top");
 
   // on component mount fetch posts and set state
   useEffect(() => {
-    fetchPosts(pageNumber, pageSize, storyType).then((postsArr) =>
-      setPosts(postsArr)
-    );
+    fetchPosts(pageNumber, pageSize, storyType).then((postsArr) => {
+      setPosts(postsArr);
+      setLoading(false);
+    });
   }, [pageNumber, pageSize, storyType]);
 
   const _setStory = (type: "top" | "new") => {
+    setLoading(true);
     setStoryType(type);
     setPageNumber(0);
   };
 
   const _setPageSize = (size: number) => {
+    setLoading(true);
     setPageSize(size);
     setPageNumber(0);
+  };
+
+  const _setPageNumber = (pageNumber: number) => {
+    setLoading(true);
+    setPageNumber(pageNumber);
   };
 
   return (
@@ -38,14 +47,14 @@ function Main() {
         selectedStoryType={storyType}
         selectedPageSize={pageSize}
       />
-      <List>
+      <List loading={loading}>
         {posts.map((story) => (
           <ArticleItem key={story.id} story={story} />
         ))}
       </List>
       <Paginator
         pageNumber={pageNumber}
-        setPageNumber={setPageNumber}
+        setPageNumber={_setPageNumber}
         totalNumPages={totalNumberPages(pageSize)}
       />
     </div>
