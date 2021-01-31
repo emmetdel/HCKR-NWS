@@ -11,7 +11,7 @@ function Main() {
   }, []);
 
   return (
-    <div id="body-main">
+    <div id="body-main" data-testid="body-main">
       <List>
         {posts.map((story, i) => (
           <ArticleItem key={story.id} listNumber={i + 1} story={story} />

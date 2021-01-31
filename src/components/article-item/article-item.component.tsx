@@ -5,12 +5,20 @@ import "./article-item.scss";
 interface ArticleItemProps {
   listNumber: number;
   story: Story.Data;
+  openCallback?: () => void;
 }
 
-const ArticleItem: React.FC<ArticleItemProps> = ({ story, listNumber }) => (
+const ArticleItem: React.FC<ArticleItemProps> = ({
+  story,
+  listNumber,
+  openCallback,
+}) => (
   <li
     data-testid="article-item"
-    onClick={() => window.open(story.url, "_blank")}
+    onClick={() =>
+      // if open callback is passed use, else open new tab
+      openCallback ? openCallback() : window.open(story.url, "_blank")
+    }
     className="article-item"
   >
     <div className="article-item__top-row">

@@ -2,15 +2,16 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import ArticleItem from "./article-item.component";
 
+import testData from "../../data/dummy-data.json";
+
 const fetchData = async () => {
   // fetch from dummy data
-  const storyItemsPath = "../../data/dummy-data.json";
-  const storyItems: Story.Data[] = await (await fetch(storyItemsPath)).json();
-  const randomIndex =
-    Math.floor(Math.random() * (storyItemsPath.length - 0 + 1)) + 0;
+  const data = testData as Story.Data[];
+
+  const randomIndex = Math.floor(Math.random() * (data.length - 0 + 1)) + 0;
 
   // pick a story at random from dummy data
-  const randomStory = storyItems[randomIndex];
+  const randomStory = data[randomIndex];
 
   return randomStory;
 };
@@ -28,18 +29,25 @@ test("check article item renders correctly", async () => {
   const by = screen.getByTestId("article-by");
   const listNumber = screen.getByTestId("article-list-number");
 
-  expect(title.textContent).toBe(randomStory.title);
-  expect(score.textContent).toBe(randomStory.score);
-  expect(by.textContent).toBe(randomStory.by);
-  expect(listNumber.textContent).toBe(testListNumber);
+  expect(title).toHaveTextContent(randomStory.title);
+  expect(score).toHaveTextContent(randomStory.score.toString());
+  expect(by).toHaveTextContent(`by: ${randomStory.by}`);
+  expect(listNumber).toHaveTextContent(testListNumber.toString());
 });
 
 test("ensure that clicking on article launches new tab", async () => {
   const testListNumber = 1;
   const randomStory = await fetchData();
+  const testCallback = jest.fn();
 
   // render article item
-  render(<ArticleItem listNumber={testListNumber} story={randomStory} />);
+  render(
+    <ArticleItem
+      listNumber={testListNumber}
+      story={randomStory}
+      openCallback={testCallback}
+    />
+  );
 
   // get article
   const article = screen.getByTestId("article-item");
@@ -47,6 +55,6 @@ test("ensure that clicking on article launches new tab", async () => {
   // click article
   article.click();
 
-  // check if new tab has been opened
-  expect(article).toBeCalled();
+  // check if callback has been called
+  expect(testCallback).toBeCalledTimes(1);
 });
