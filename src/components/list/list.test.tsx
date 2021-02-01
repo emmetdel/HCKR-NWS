@@ -19,7 +19,7 @@ test("check list loader renders correctly", () => {
   expect(listLoader).toBeInTheDocument();
 });
 
-test("check list renders correctly", () => {
+test("check list renders correctly", async () => {
   // set loading to false
   loading = false;
 
@@ -28,5 +28,9 @@ test("check list renders correctly", () => {
 
   // expect list to be displayed and loader not
   const listTable = screen.getByTestId("list-main-table");
+
   expect(listTable).toBeInTheDocument();
+
+  // expect 3 child elements in list
+  expect(listTable.children).toHaveLength(children.length);
 });
