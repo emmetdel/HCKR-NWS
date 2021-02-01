@@ -28,7 +28,7 @@ const Loading: React.FC<LoadingProps> = ({ label }) => {
   }, []);
 
   return (
-    <div className="loader">
+    <div className="loader" data-testid="loader">
       <div className="loader__spinner"></div>
       <p ref={labelRef} className="loader__label">
         {label}

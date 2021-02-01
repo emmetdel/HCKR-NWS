@@ -9,14 +9,16 @@ interface ListProps {
 }
 
 const _renderLoading = () => (
-  <div className="loading-container">
+  <div data-testid="list-loader" className="loading-container">
     <Loading label="Loading Posts..." />
   </div>
 );
 
 const _renderTable = (children?: React.ReactNodeArray) =>
   children ? (
-    <ul className="main-table">{children}</ul>
+    <ul data-testid="list-main-table" className="main-table">
+      {children}
+    </ul>
   ) : (
     <li>There is no data to display.</li>
   );

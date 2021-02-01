@@ -7,7 +7,7 @@ test("check dropdown functionality", async () => {
   const selectedOption = options[1];
   const testCallback = jest.fn();
 
-  // render article item
+  // render dropdown item
   render(
     <Dropdown
       label={label}

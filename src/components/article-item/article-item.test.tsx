@@ -32,7 +32,7 @@ test("check article item renders correctly", async () => {
   expect(by).toHaveTextContent(`by: ${randomStory.by}`);
 });
 
-test("ensure that clicking on article launches new tab", async () => {
+test("ensure that clicking calls callback fn", async () => {
   const randomStory = await fetchData();
   const testCallback = jest.fn();
 
