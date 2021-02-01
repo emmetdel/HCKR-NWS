@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/HCKR/NWS/static/css/main.78db98ab.chunk.css",
-    "main.js": "/HCKR/NWS/static/js/main.c8e4890c.chunk.js",
-    "main.js.map": "/HCKR/NWS/static/js/main.c8e4890c.chunk.js.map",
-    "runtime-main.js": "/HCKR/NWS/static/js/runtime-main.f7517182.js",
-    "runtime-main.js.map": "/HCKR/NWS/static/js/runtime-main.f7517182.js.map",
-    "static/js/2.eb06b33f.chunk.js": "/HCKR/NWS/static/js/2.eb06b33f.chunk.js",
-    "static/js/2.eb06b33f.chunk.js.map": "/HCKR/NWS/static/js/2.eb06b33f.chunk.js.map",
-    "index.html": "/HCKR/NWS/index.html",
-    "service-worker.js": "/HCKR/NWS/service-worker.js",
-    "service-worker.js.map": "/HCKR/NWS/service-worker.js.map",
-    "static/css/main.78db98ab.chunk.css.map": "/HCKR/NWS/static/css/main.78db98ab.chunk.css.map",
-    "static/js/2.eb06b33f.chunk.js.LICENSE.txt": "/HCKR/NWS/static/js/2.eb06b33f.chunk.js.LICENSE.txt"
+    "main.css": "/HCKR-NWS/static/css/main.78db98ab.chunk.css",
+    "main.js": "/HCKR-NWS/static/js/main.c8e4890c.chunk.js",
+    "main.js.map": "/HCKR-NWS/static/js/main.c8e4890c.chunk.js.map",
+    "runtime-main.js": "/HCKR-NWS/static/js/runtime-main.4d21a17f.js",
+    "runtime-main.js.map": "/HCKR-NWS/static/js/runtime-main.4d21a17f.js.map",
+    "static/js/2.eb06b33f.chunk.js": "/HCKR-NWS/static/js/2.eb06b33f.chunk.js",
+    "static/js/2.eb06b33f.chunk.js.map": "/HCKR-NWS/static/js/2.eb06b33f.chunk.js.map",
+    "index.html": "/HCKR-NWS/index.html",
+    "service-worker.js": "/HCKR-NWS/service-worker.js",
+    "service-worker.js.map": "/HCKR-NWS/service-worker.js.map",
+    "static/css/main.78db98ab.chunk.css.map": "/HCKR-NWS/static/css/main.78db98ab.chunk.css.map",
+    "static/js/2.eb06b33f.chunk.js.LICENSE.txt": "/HCKR-NWS/static/js/2.eb06b33f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f7517182.js",
+    "static/js/runtime-main.4d21a17f.js",
     "static/js/2.eb06b33f.chunk.js",
     "static/css/main.78db98ab.chunk.css",
     "static/js/main.c8e4890c.chunk.js"
