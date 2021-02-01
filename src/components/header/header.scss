@@ -5,12 +5,17 @@ header {
   padding: 5px;
   #main-logo {
     font-size: 36px;
+    max-width: 30%;
   }
 
   #dropdown-container {
     display: flex;
     flex-direction: row;
-    width: 12.5%;
-    justify-content: space-between;
+    width: 20%;
+    justify-content: flex-end;
+
+    :first-child {
+      margin-right: 20px;
+    }
   }
 }

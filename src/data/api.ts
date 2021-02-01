@@ -15,9 +15,13 @@ const lessThan10MinsAgo = (timeLastUpdated: string) => {
   }
 };
 
+// DEVELOPER NOTE: in here I have made the assumption that the hacker news api will not be updated more regularly that 10 minutes,
+// I have therefore made the decision to limit making calls to fetch index array to every 10 mins or more, this limits unecessary api calls
+
 // fetch indexes
 const _fetchIndexes = async (storyType: string): Promise<number[]> => {
   try {
+    // gets index array and time last updated from local storage
     const indexArr = sessionStorage.getItem(localStorageKey);
     const timeLastUpdated = sessionStorage.getItem(lastUpdatedTimeKey);
 
@@ -45,6 +49,7 @@ const fetchPosts = async (
   pageSize: number,
   storyType: string
 ): Promise<Story[]> => {
+  // fetches index array from api or from local storage if time less than 10 mins since last fetch
   const storyIndexArray = await _fetchIndexes(storyType);
 
   try {

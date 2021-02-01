@@ -1,6 +1,6 @@
 @import "../../styles/_colors.scss";
 
-// TODO - handle smaller screen sizes
+// TODO - handle smaller screen sizes, I was going to implement responsive design but ran out of time.
 
 .article-item {
   display: grid;
@@ -10,7 +10,6 @@
   vertical-align: middle;
   padding-left: 20px;
 
-  // TODO - move transition to component and fill based on score
   background: linear-gradient(to right, $bg-secondary 50%, #fff 50%);
   background-size: 200%;
   background-position: bottom right;

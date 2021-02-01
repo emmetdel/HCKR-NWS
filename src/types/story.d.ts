@@ -1,3 +1,4 @@
+// interface for story data that will be returned from the API
 interface Story {
   id: number;
   displayNumber: number;

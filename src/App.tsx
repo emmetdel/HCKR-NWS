@@ -22,18 +22,21 @@ function Main() {
     });
   }, [pageNumber, pageSize, storyType]);
 
+  // set story type
   const _setStory = (type: "top" | "new") => {
     setLoading(true);
     setStoryType(type);
     setPageNumber(0);
   };
 
+  // set page size
   const _setPageSize = (size: number) => {
     setLoading(true);
     setPageSize(size);
     setPageNumber(0);
   };
 
+  // set page number
   const _setPageNumber = (pageNumber: number) => {
     setLoading(true);
     setPageNumber(pageNumber);
